@@ -1,39 +1,39 @@
-import { Button, Container, Flex, HStack, Text, useColorMode } from "@chakra-ui/react";
-import { Link } from "react-router-dom"; // Add this line
-import { CiSquarePlus,FaMoon,FasSun } from "react-icons/ci";
+import { Container, Flex, Text, HStack, Button, useColorMode} from "@chakra-ui/react";
+import { Moon, PlusSquareIcon, Sun } from "lucide-react";
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
-
-
-    const { colorMode, toggleColorMode } = useColorMode();
-
+  const {coloreMode, toggleColorMode} = useColorMode();
   return (
-    <Container maxW={"1400px"} px={4}>
+    <Container maxW={"1140px"} px={4}>
       <Flex
         h={16}
         alignItems={"center"}
         justifyContent={"space-between"}
         flexDir={{ base: "column", sm: "row" }}
       >
+        {/* left side of Navbar */}
         <Text
-          fontSize={{ base: "22px", sm: "24px" }}
+          fontSize={{ base: "22", sm: "28" }}
           fontWeight={"bold"}
-          textTransform={"uppercase"}
           textAlign={"center"}
-          bgGradient={"linear(to-r, red.300, blue.500)"}
+          bgGradient={"linear(to-r, #498273, #663434)"}
           bgClip={"text"}
+          className="font-gilroy"
         >
-          <Link to={"/products"}>Product Store 🛒 </Link>
+          <Link to={"/"}>RaitStore 🛒</Link>
         </Text>
 
-        <HStack spacing={8} alignItems={"center"}>
-            <Link to={"/create"}>
-                <Button fontSize={35}>
-                    <CiSquarePlus /> 
-                </Button>
-            </Link>
-            <Button onClick={toggleColorMode}>
-                {colorMode === "light" ? <FaMoon /> : <FasSun />}
+        {/* right side of Navbar */}
+        <HStack spacing={2} alignItems={"center"}>
+          <Link to={"/create"}>
+            <Button>
+              <PlusSquareIcon fontSize={20}/>
             </Button>
+          </Link>
+          <Button onClick={toggleColorMode}>
+              {coloreMode ==="light"? <Moon fontSize={20}/> : <Sun fontSize={20}/>}
+          </Button>
         </HStack>
       </Flex>
     </Container>
