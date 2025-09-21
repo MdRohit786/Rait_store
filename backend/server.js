@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from "dotenv";
 import {connectDB} from './config/db.js';
-import productRouts from "./routs/product.route.js";
+import productRoutes from "./routs/product.route.js";
 import path from "path";
 dotenv.config();
 const PORT = process.env.PORT || 8000;
@@ -11,7 +11,7 @@ const __dirname = path.resolve();
 
 app.use(express.json()); //allows us to accept JSON data in the body 
 
-app.use("/api/products",productRouts);
+app.use("/api/products",productRoutes);
 
 // configuration for production ------------------------
 if(process.env.NODE_ENV == "production"){
