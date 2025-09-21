@@ -28,8 +28,11 @@ export const postProduct = async(req,res)=>{
 }
 
 export const updateProduct = async(req,res)=>{
+
+    // We extract this ID to know which product to update
     const {id}= req.params;
 
+    // Get Update Data from Request Body
     const product = req.body;
     if(!mongoose.Types.ObjectId.isValid(id)){
         return res.status(404).json({success:false,message:"invalid product id "})
@@ -37,7 +40,7 @@ export const updateProduct = async(req,res)=>{
     try {
         const updatedProduct = await Product.findByIdAndUpdate(id,product, {new:true});
 
-        res.status(200).json({success:true, data:updatedProduct});
+        res.status(200).json({success:true, data:updatedProduct,message:"Product updated"});
     }catch(error){
         res.status(500).json({success:false,message:"data not updated"})
     }
