@@ -1,4 +1,4 @@
-# 📱 RaitStore - MERN Stack E-Commerce Project
+# RaitStore - MERN Stack E-Commerce Project
 
 ![MERN Stack](https://img.shields.io/badge/MERN-Full%20Stack-green)
 ![React](https://img.shields.io/badge/React-18.2-blue)
