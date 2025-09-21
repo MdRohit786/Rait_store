@@ -13,6 +13,7 @@ app.use(express.json()); //allows us to accept JSON data in the body
 
 app.use("/api/products",productRouts);
 
+// configuration for production ------------------------
 if(process.env.NODE_ENV == "production"){
     app.use(express.static(path.join(__dirname,"/frontend/dist")));
     app.get("*",(req,res)=>{
@@ -32,4 +33,3 @@ app.listen(PORT,async()=>{
 });
 
 
-// FibZcgA7JmouGaL6
